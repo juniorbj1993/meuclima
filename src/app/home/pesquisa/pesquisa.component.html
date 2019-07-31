@@ -1,0 +1,61 @@
+<div class="row cidade_input">
+  <div class="col-6-sm">
+    <div class="col-12-sm">
+        <div class="card">
+            <h5 class="card-header" style="background-color: rgb(149, 149, 255);">Digite o nome da cidade que deseja ver o clima: </h5>
+            <form [formGroup]="this.buscaform"> 
+              <div class="card-body">
+                
+                    <div class="form-row">
+                      <div class="col">
+                        <input type="text" formControlName="cidade" class="form-control" placeholder="Digite o nome da cidade">
+                      </div>
+                    </div>
+                    <br>
+                    <button (click)="click()"class="btn btn-block btn-primary" [disabled]="this.buscaform.invalid">Buscar</button>
+              
+              </div>
+          </form>
+          </div>
+          <div class='row'>
+              <div class="img col-6">
+                  <h4>TEMPO  </h4>
+                  <p *ngIf='icon == ""'>Faça uma busca!</p>
+                  <img *ngIf='icon != ""'  [src]="url" class="card-img-top" alt="...">
+                  <p *ngIf='this.graus != null' style="color: crimson; text-align: center;">{{this.graus}}ºK</p>
+              </div>
+              <div class="col-6 texto">
+                  <h4>CIDADE </h4>
+                  <p *ngIf='cidadeName == ""'>Faça uma busca!</p>
+                  <h5 style="color: crimson;">{{cidadeName}}</h5>
+                  
+              </div>
+             
+
+        </div>
+        
+  </div>
+  
+
+  
+  
+</div>
+
+<div class="col-6-sm">
+    <div class="avaliacao">
+        <h5>Dê uma avaliação para a informação do tempo! </h5>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" [disabled]="this.salvo == true" (click)="aval('1')">1 <i class="far fa-star"></i></button>
+            <button type="button" class="btn btn-secondary" [disabled]="this.salvo == true" (click)="aval('2')">2 <i class="far fa-star"></i></button>
+            <button type="button" class="btn btn-secondary" [disabled]="this.salvo == true" (click)="aval('3')">3 <i class="far fa-star"></i></button>
+            <button type="button" class="btn btn-secondary" [disabled]="this.salvo == true" (click)="aval('4')">4 <i class="far fa-star"></i></button>
+            <button type="button" class="btn btn-secondary" [disabled]="this.salvo == true" (click)="aval('5')">5 <i class="far fa-star"></i></button>
+          </div>
+          
+    </div>
+    
+</div>
+<button type="button" (click)="salvar()" [disabled]="this.salvo == true" class="btn-block btn-primary btn-lg" >Salvar</button>
+ 
+</div>
+

@@ -1,0 +1,27 @@
+<div class="body"> 
+    <div>
+      <img class="logo" src="../../assets/img/logo.png" alt="">
+    </div>
+    <div class="card">
+
+        <div>
+            <h1 class="titulo"><b>Q</b>UAL O <b>C</b>LIMA?</h1>
+        </div>
+      <div class="form-group row">
+        
+        <div class="col-12 col-md-12 col-lg-12">
+          <button *ngIf="logado == 'null'" type="button" class="btn btn-lg col-12 btn-danger" (click)="authloginservice.GoogleAuth()">
+            <img src="../../assets/img/google.png" class="google">&nbsp;&nbsp;Login com o Google
+          </button>
+           <button *ngIf="logado != 'null'" type="button" class="btn btn-lg col-12 btn-danger" routerLink="/home">
+            Entrar
+          </button>
+        </div>
+      </div>
+      <div class="bg_desc">
+          <h4 class="descricao">Está querendo sair, mas não sabe se vai chover? não precisa se desesperar, basta somente clicar no botão acima, fazer seu login e digitar o nome de sua cidade, e assim lhe será mostrado a previsão do clima de forma fácil e rápida!</h4>
+      </div>
+     
+    </div>
+    
+</div>

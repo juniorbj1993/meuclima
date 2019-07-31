@@ -1,0 +1,20 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Cidade</th>
+        <th scope="col">Tempo</th>
+        <th scope="col">Grau(Kelvin)</th>
+        <th scope="col">Avaliação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dadosSalvos of dados">
+        <th scope="row">{{dadosSalvos.cidade}}</th>
+        <td><img  [src]="dadosSalvos.icone" class="clima card-img-top" alt="..."></td>
+        <td>{{dadosSalvos.graus}}</td>
+        <td>{{dadosSalvos.aval}}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+  <button type="button" (click)="deletar()"  class="btn-block btn-danger btn-lg" >Limpar Armazenamento de Buscas</button>

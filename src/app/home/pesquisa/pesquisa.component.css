@@ -1,0 +1,19 @@
+.row{
+ 
+}
+.img{
+   padding: 10%;
+}
+.texto{
+    padding: 10%;
+}
+.avaliacao{
+    text-align: center;
+    margin-top: 15%;
+    margin-bottom: 15%;
+    padding: 8%;
+}
+.cidade_input{
+ margin-left: 2%;
+ margin-right: 2%;
+}
