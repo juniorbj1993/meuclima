@@ -18,8 +18,9 @@
           </form>
           </div>
           <div class='row'>
+            
               <div class="img col-6">
-                  <h4>TEMPO  </h4>
+                  <h4>TEMPO</h4>
                   <p *ngIf='icon == ""'>Faça uma busca!</p>
                   <img *ngIf='icon != ""'  [src]="url" class="card-img-top" alt="...">
                   <p *ngIf='this.graus != null' style="color: crimson; text-align: center;">{{this.graus}}ºK</p>

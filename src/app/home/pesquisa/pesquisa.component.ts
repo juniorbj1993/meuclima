@@ -54,6 +54,9 @@ export class PesquisaComponent implements OnInit {
       this.icon = res.weather[0].icon;
       this.descricao = res.weather[0].description;
       this.url = `http://openweathermap.org/img/w/${this.icon}.png`
+    },
+    error=>{
+      window.alert('Cidade não encontrada ou escrita de forma errada!')
     })
   }
   aval(numb: string){
@@ -67,6 +70,7 @@ export class PesquisaComponent implements OnInit {
       this.pesquisa.push(this.clima);
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
+      window.alert('Dados Salvos!')
     }else{
       this.pesquisa =  JSON.parse(localStorage.getItem('buscas'));
       this.pesquisa.push(this.clima);
@@ -74,6 +78,7 @@ export class PesquisaComponent implements OnInit {
       let teste =JSON.parse(localStorage.getItem('buscas'));
       console.log(teste)
       this.salvo = true;
+      window.alert('Dados Salvos!')
     }
 
     // 
@@ -90,6 +95,7 @@ export class PesquisaComponent implements OnInit {
       this.pesquisa.push(this.clima);
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
+      window.alert('Dados Salvos!')
     }else{
       this.pesquisa =  JSON.parse(localStorage.getItem('buscas'));
       this.pesquisa.push(this.clima);
@@ -97,6 +103,7 @@ export class PesquisaComponent implements OnInit {
       let teste =JSON.parse(localStorage.getItem('buscas'));
       console.log(teste)
       this.salvo = true;
+      window.alert('Dados Salvos!')
     }
   }
 
