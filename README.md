@@ -1,6 +1,9 @@
 # Meuclima
 
-Esse projeto foi gerado com Angular CLI versão 7.3.4.
+Esse projeto foi gerado com Angular CLI versão 7.3.4. logo para que funcione localmente é necessário que seja instalado o angular na maquina. 
+npm install -g @angular/cli
+
+é necessário ter o NODE e o npm instalado na maquina.
 
 ## Development server
 Primeiro utilize o npm install na pasta do projeto para que seja instalado todas as dependências do projeto.
