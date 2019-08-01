@@ -21,6 +21,11 @@ export class PesquisaComponent implements OnInit {
 
   salvo: boolean = true;
 
+  DadosUser = {
+    uid:'',
+    arrayClima: []
+  }
+
   clima = {
     cidade: '',
     icone: '',
@@ -47,7 +52,6 @@ export class PesquisaComponent implements OnInit {
   click(){
     this.http.getData(this.buscaform.get('cidade').value,this.key).subscribe((res:any) =>{
       this.salvo = false;
-      console.log(res)
       this.avaliacao = '1';
       this.graus = res.main.temp;
       this.cidadeName = this.buscaform.get('cidade').value;
@@ -66,25 +70,49 @@ export class PesquisaComponent implements OnInit {
     this.clima.icone = this.url;
     this.clima.desc = this.descricao;
     this.clima.aval = numb;
-    console.log(localStorage.getItem('buscas'))
+    
     if(!localStorage.getItem('buscas')){
-      console.log('existe')
-      this.pesquisa.push(this.clima);
+      this.DadosUser.uid = sessionStorage.getItem('user');
+      this.DadosUser.arrayClima.push(this.clima)
+      this.pesquisa.push(this.DadosUser)
+
+      
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
+    
       window.alert('Dados Salvos!')
     }else{
-      this.pesquisa =  JSON.parse(localStorage.getItem('buscas'));
-      this.pesquisa.push(this.clima);
-      localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
-      let teste = JSON.parse(localStorage.getItem('buscas'));
-      console.log(teste)
-      this.salvo = true;
-      window.alert('Dados Salvos!')
+      let vetAux = JSON.parse(localStorage.getItem('buscas'));
+      let x = 0;
+      let dadouiexist = false;
+
+      for(let cont of vetAux ){
+        if(cont.uid == sessionStorage.getItem('user')){
+          vetAux[x].arrayClima.push(this.clima);
+          localStorage.setItem('buscas', JSON.stringify(vetAux));
+          
+          this.salvo = true;
+          dadouiexist = true;
+          window.alert('Dados Salvos!')
+        }
+        x = x + 1;
+      }
+      if(dadouiexist == false){
+        this.DadosUser.uid = sessionStorage.getItem('user');
+        this.DadosUser.arrayClima.push(this.clima)
+        vetAux.push(this.DadosUser)
+  
+
+        localStorage.setItem('buscas', JSON.stringify(vetAux));
+        this.salvo = true;
+        window.alert('Dados Salvos!')
+
+      }
+
+    
     }
 
-    // 
-    //
+
     
   }
   salvar(){
@@ -93,20 +121,46 @@ export class PesquisaComponent implements OnInit {
     this.clima.icone = this.url;
     this.clima.desc = this.descricao;
     this.clima.aval = this.avaliacao;
+
     if(!localStorage.getItem('buscas')){
-      this.pesquisa.push(this.clima);
+      this.DadosUser.uid = sessionStorage.getItem('user');
+      this.DadosUser.arrayClima.push(this.clima)
+      this.pesquisa.push(this.DadosUser)
+
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
+
       window.alert('Dados Salvos!')
     }else{
-      this.pesquisa =  JSON.parse(localStorage.getItem('buscas'));
-      this.pesquisa.push(this.clima);
-      localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
-      let teste =JSON.parse(localStorage.getItem('buscas'));
-      console.log(teste)
-      this.salvo = true;
-      window.alert('Dados Salvos!')
+      let vetAux = JSON.parse(localStorage.getItem('buscas'));
+      let x = 0;
+      let dadouiexist = false;
+
+      for(let cont of vetAux ){
+        if(cont.uid == sessionStorage.getItem('user')){
+          vetAux[x].arrayClima.push(this.clima);
+          localStorage.setItem('buscas', JSON.stringify(vetAux));
+
+          this.salvo = true;
+          dadouiexist = true;
+           window.alert('Dados Salvos!')
+        }
+        x = x + 1;
+      }
+      if(dadouiexist == false){
+        this.DadosUser.uid = sessionStorage.getItem('user');
+        this.DadosUser.arrayClima.push(this.clima)
+        vetAux.push(this.DadosUser)
+ 
+        localStorage.setItem('buscas', JSON.stringify(vetAux));
+        this.salvo = true;
+
+        window.alert('Dados Salvos!')
+
+      }
+
     }
+
   }
 
 

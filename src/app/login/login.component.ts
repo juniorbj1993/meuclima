@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.logado = sessionStorage.getItem('user');
-    console.log(this.logado)
+
   }
  
 

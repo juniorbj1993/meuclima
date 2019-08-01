@@ -13,13 +13,16 @@ export class ListaComponent implements OnInit {
   constructor(public route: Router) { }
 
   ngOnInit() {
-    this.dados = JSON.parse(localStorage.getItem('buscas'));
+    let vet  = JSON.parse(localStorage.getItem('buscas'));
+    let x = 0;
+    for(let cont of vet){
+      if(cont.uid == sessionStorage.getItem('user')){
+        this.dados = vet[x].arrayClima;
+
+      }
+      x = x+1
+    }
   }
-  deletar(){
-    localStorage.clear();
-    window.alert('Dados Apagados!')
-    this.route.navigate(['/home/pesquisa'])
-    
-  }
+  
 
 }

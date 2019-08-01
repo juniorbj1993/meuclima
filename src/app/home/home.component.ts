@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit {
     
   }
   esconderMenu(){
-    console.log(document.getElementById('sidebar').className)
     if(document.getElementById('sidebar').className == 'active'){
       document.getElementById('sidebar').className = 'desactive';
     }else{

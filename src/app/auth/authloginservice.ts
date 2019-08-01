@@ -37,9 +37,7 @@ export class AuthLoginService {
         this.ngZone.run(() => {
           this.router.navigate(['home']);
         })
-        
-        console.log(sessionStorage.getItem('user'));
-        console.log(sessionStorage.getItem('username'));
+
       })
     }
 
