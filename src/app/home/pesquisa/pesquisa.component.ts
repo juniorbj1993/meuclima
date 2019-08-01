@@ -71,8 +71,7 @@ export class PesquisaComponent implements OnInit {
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
       window.alert('Dados Salvos!')
-    }
-    if(localStorage.getItem('buscas') != null){
+    }else{
       this.pesquisa =  JSON.parse(localStorage.getItem('buscas'));
       this.pesquisa.push(this.clima);
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
