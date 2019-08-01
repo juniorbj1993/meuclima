@@ -10,3 +10,6 @@ no terminal digite `ng serve` para rodar o servidor. no navegador digite `http:/
 
 foi realizado o deploy no heroku, pode verificar as funcionalidades por lá também!
 url: https://qualemeuclima.herokuapp.com/
+
+## banco de dados
+O banco de dados foi criado baseado em json, é um banco de dados local que armazena os dados serados de cada um dos usuários!
