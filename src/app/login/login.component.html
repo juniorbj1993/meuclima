@@ -10,10 +10,10 @@
       <div class="form-group row">
         
         <div class="col-12 col-md-12 col-lg-12">
-          <button *ngIf="logado == 'null'" type="button" class="btn btn-lg col-12 btn-danger" (click)="authloginservice.GoogleAuth()">
+          <button *ngIf="logado == null" type="button" class="btn btn-lg col-12 btn-danger" (click)="authloginservice.GoogleAuth()">
             <img src="../../assets/img/google.png" class="google">&nbsp;&nbsp;Login com o Google
           </button>
-           <button *ngIf="logado != 'null'" type="button" class="btn btn-lg col-12 btn-danger" routerLink="/home">
+           <button *ngIf="logado != null" type="button" class="btn btn-lg col-12 btn-danger" routerLink="/home">
             Entrar
           </button>
         </div>
