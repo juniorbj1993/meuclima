@@ -6,6 +6,7 @@ import { ListaComponent } from './lista/lista.component';
 import { HomeRoutingModule } from './home.routing';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthGuardService } from '../guards/auth-guard.service';
 
 
 
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
+    AuthGuardService
   ],
  
 })

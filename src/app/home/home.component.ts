@@ -16,10 +16,6 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(!sessionStorage.getItem('user')){
-      this.router.navigate(['']);
-    }
-    
   }
   sair(){
     this.afAuth.SignOut();

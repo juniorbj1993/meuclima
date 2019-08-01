@@ -17,6 +17,7 @@ export class AuthLoginService {
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
+    public ngZone: NgZone,
   ) {
     this.afAuth.authState.subscribe(user => {
         if (user) {
@@ -33,7 +34,10 @@ export class AuthLoginService {
     GoogleAuth() {
       this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
       .then((result) => {
-        this.router.navigate(['']);
+        this.ngZone.run(() => {
+          this.router.navigate(['home']);
+        })
+        
         console.log(sessionStorage.getItem('user'));
         console.log(sessionStorage.getItem('username'));
       })
@@ -61,7 +65,6 @@ export class AuthLoginService {
   SignOut() {
     return this.afAuth.auth.signOut()
       .then((result) => {
-        sessionStorage.clear();
         sessionStorage.clear();
         this.router.navigate(['']);
       }).catch((error) => {
