@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if(localStorage.getItem('user') == null){
+    if(!sessionStorage.getItem('user')){
       this.router.navigate(['']);
     }
-    this.username = localStorage.getItem('username');
+    
   }
   sair(){
     this.afAuth.SignOut();

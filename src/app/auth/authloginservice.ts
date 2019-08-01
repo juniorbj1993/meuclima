@@ -22,11 +22,11 @@ export class AuthLoginService {
         if (user) {
           this.userData = user.uid;
           this.userName = user.displayName;
-          localStorage.setItem('user', JSON.stringify(this.userData));
-          localStorage.setItem('username', JSON.stringify(this.userName));
+          sessionStorage.setItem('user', JSON.stringify(this.userData));
+          sessionStorage.setItem('username', JSON.stringify(this.userName));
 
         } else {
-          localStorage.setItem('user', null);
+          sessionStorage.clear();
         }
       })
     }
@@ -61,8 +61,8 @@ export class AuthLoginService {
   SignOut() {
     return this.afAuth.auth.signOut()
       .then((result) => {
-        localStorage.setItem('user',null);
-        localStorage.setItem('username',null);
+        sessionStorage.clear();
+        sessionStorage.clear();
         this.router.navigate(['']);
       }).catch((error) => {
        
