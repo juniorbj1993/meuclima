@@ -66,7 +66,9 @@ export class PesquisaComponent implements OnInit {
     this.clima.icone = this.url;
     this.clima.desc = this.descricao;
     this.clima.aval = numb;
-    if(localStorage.getItem('buscas') == null){
+    console.log(localStorage.getItem('buscas'))
+    if(!localStorage.getItem('buscas')){
+      console.log('existe')
       this.pesquisa.push(this.clima);
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
@@ -91,7 +93,7 @@ export class PesquisaComponent implements OnInit {
     this.clima.icone = this.url;
     this.clima.desc = this.descricao;
     this.clima.aval = this.avaliacao;
-    if(localStorage.getItem('buscas') == 'null'){
+    if(!localStorage.getItem('buscas')){
       this.pesquisa.push(this.clima);
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;

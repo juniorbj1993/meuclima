@@ -16,7 +16,7 @@ export class ListaComponent implements OnInit {
     this.dados = JSON.parse(localStorage.getItem('buscas'));
   }
   deletar(){
-    localStorage.setItem('buscas', null)
+    localStorage.clear();
     window.alert('Dados Apagados!')
     this.route.navigate(['/home/pesquisa'])
     
