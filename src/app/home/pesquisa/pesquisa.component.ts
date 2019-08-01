@@ -66,7 +66,7 @@ export class PesquisaComponent implements OnInit {
     this.clima.icone = this.url;
     this.clima.desc = this.descricao;
     this.clima.aval = numb;
-    if(localStorage.getItem('buscas') == null){
+    if(localStorage.getItem('buscas') == 'null'){
       this.pesquisa.push(this.clima);
       localStorage.setItem('buscas', JSON.stringify(this.pesquisa));
       this.salvo = true;
