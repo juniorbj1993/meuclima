@@ -33,9 +33,9 @@ export class AuthLoginService {
     GoogleAuth() {
       this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
       .then((result) => {
-        this.router.navigate(['home']);
-        console.log(localStorage.getItem('user'));
-        console.log(localStorage.getItem('username'));
+        this.router.navigate(['']);
+        console.log(sessionStorage.getItem('user'));
+        console.log(sessionStorage.getItem('username'));
       })
     }
 
